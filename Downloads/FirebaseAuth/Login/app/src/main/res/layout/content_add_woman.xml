@@ -1,0 +1,117 @@
+<!--<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.pallavi.login.addWoman"
+    tools:showIn="@layout/activity_add_woman">
+
+</RelativeLayout>-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/LinearLayout1"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="10dp">
+
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="20dp"
+    android:id="@+id/scrollView2"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentLeft="true">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="140dp"
+        android:orientation="vertical"
+        android:layout_alignTop="@+id/scrollView2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true">
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/upload"
+
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+
+
+        <Button
+            android:id="@+id/btnSelectPhoto"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Select Photo"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_shape"
+            />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:id="@+id/NameOfTheBookEdittext"
+            android:hint="Name Of the Book"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true" />
+        <EditText
+            android:layout_width="match_parent"
+
+            android:layout_height="45dp"
+            android:id="@+id/AuthorNameEdittext"
+            android:hint="Author Name"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:id="@+id/IsbnNoEdittext"
+            android:hint="ISBN NUMBER"
+            android:inputType="number"
+            android:layout_centerHorizontal="true"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/DescriptionEdittext"
+
+            android:layout_alignParentStart="true"
+            android:hint="ADD Description :"
+            android:layout_alignParentLeft="true" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADD BOOK"
+            android:id="@+id/savebookbutton"
+            android:layout_alignBottom="@+id/scrollView2"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/button_shape"
+            android:layout_alignParentLeft="true" />
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+</RelativeLayout>
