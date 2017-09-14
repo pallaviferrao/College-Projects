@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="hk.ust.cse.comp107x.bookapp2.MainActivity"
+    >
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="hk.ust.cse.comp107x.bookapp2.removepage">
+
+    <ImageView
+        android:id="@+id/backimage"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_gravity="left|top"
+        android:scaleType="fitCenter"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/smallimage"
+        android:layout_width="153dp"
+        android:layout_height="120dp"
+        android:layout_gravity="left|top"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="141dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="40dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="NAME  :"
+        android:id="@+id/booknametextview"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/smallimage"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="AUTHOR  :"
+        android:id="@+id/bookauthortextview"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/booknametextview"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="ISBN NUMBER :"
+        android:id="@+id/bookisbntextview"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/bookauthortextview"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="DESCRIPTION"
+        android:id="@+id/bookdescriptiontextview"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/bookisbntextview"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
+</ScrollView>
+    <android.support.design.widget.FloatingActionButton
+    android:id="@+id/removebookbutton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|right"
+    android:layout_margin="@dimen/fab_margin"
+    android:src="@android:drawable/ic_delete"
+        android:maxHeight="20dp" />
+
+</android.support.design.widget.CoordinatorLayout>
