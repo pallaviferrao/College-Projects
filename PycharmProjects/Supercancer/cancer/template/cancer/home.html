@@ -1,0 +1,203 @@
+{% extends 'cancer/base.html' %}
+{% block access_active %}active{% endblock %}
+
+{% block body %}
+
+<html>
+<head>
+<style>
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: black;
+}
+
+/* Style the links inside the tab */
+div.tab a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+div.tab a:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab a:focus, .active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+#container {
+  width: 1000px;
+  overflow: hidden;
+  margin: 50px auto;
+  background: white;
+}
+
+.photobanner {
+  height: 233px;
+  width: 3550px;
+  margin-bottom: 80px;
+}
+
+.first {
+  -webkit-animation: bannermove 30s linear infinite;
+     -moz-animation: bannermove 30s linear infinite;
+      -ms-animation: bannermove 30s linear infinite;
+       -o-animation: bannermove 30s linear infinite;
+          animation: bannermove 30s linear infinite;
+}
+
+@keyframes "bannermove" {
+ 0% {
+    margin-left: 0px;
+ }
+ 100% {
+    margin-left: -2125px;
+ }
+
+}
+
+@-moz-keyframes bannermove {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+
+}
+
+@-webkit-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+
+}
+
+@-ms-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+
+}
+
+@-o-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+
+}
+
+.photobanner {
+  height: 170px;
+  width: 2550px;
+  margin-bottom: 50px;
+}
+
+.photobanner img {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.photobanner img:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  cursor: pointer;
+
+  -webkit-box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+  box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+}
+
+
+
+</style>
+</head>
+<body bgcolor='#ffccff' background='../../static/cancer/images/pallu1.jpg'>
+
+<!--
+<div class="tab">
+  <a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'HOME')">HOME</a>
+  <a href="file:///home/palak/Desktop/f1.html">SIGN-UP</a>
+  <a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'LOGIN')">LOGIN</a>
+</div>-->
+
+  <div class="photobanner">
+      <img class="first" src="../../static/cancer/images/image1.jpg" alt="" />
+      <img src="image2.jpg" alt="" />
+      <img src="image3.jpg" alt="" />
+      <img src="image4.jpg" alt="" />
+      <img src="image1.jpg" alt="" />
+      <img src="image2.jpg" alt="" />
+      <img src="image3.jpg" alt="" />
+      <img src="image4.jpg" alt="" />
+   </div>
+<!--
+  <div id="container">
+
+
+<div id="HOME" class="tabcontent">
+</div>
+
+<div id="SIGN-UP" class="tabcontent">
+</div>
+
+<div id="LOGIN" class="tabcontent">
+</div>-->
+
+<script>
+";w3IncludeHTML();
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active
+}
+</script>
+
+</body>
+</html>
+
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'cancer/base.html' %}
+{% block access_active %}active{% endblock %}
+
+{% block body %}
+<div class="access-container container-fluid">
+
+    <!-- Albums -->
+    <<div class="row">
+        <div class="col-sm-12" style="color: #2e8b57">
+            <h3><center><bold>{{ user.username }}'s Albums</bold></center></h3>
+        </div>
+        {% if access %}
+            {% for access in access %}
+                <div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail">
+                        <a href="{% url 'cancer:detail' access.id %}">
+                            <img src="{{ access.cancer_logo.url }}" class="img-responsive">
+                        </a>
+                        <div class="caption">
+                            <h2>{{ access.name }}</h2>
+                            <h4>{{ access.cancer_type }}</h4>
+
+                            <!-- View Details -->
+                            <a href="{% url 'cancer:detail' access.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+
+                            <!-- Delete Album -->
+                            <form action="{% url 'cancer:delete_access' access.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="access_id" value="{{ access.id }}" />
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+            {% endfor %}
+        {% else %}
+            <div class="col-sm-12">
+                <br>
+                <a href="{% url 'cancer:create_access' %}">
+                    <button type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; Add an Access
+                    </button>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- If user searches and there are songs -->
+    {% if query %}
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>query</h3>
+            </div>
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Song Title</th>
+                                    <th>Artist</th>
+                                    <th>Audio File</th>
+                                    <th>Album</th>
+                                    <th>Favorite</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for query in query %}
+                                    <tr>
+                                        <td>{{ query.query_title }}</td>
+                                        <td>{{ query.access.name }}</td>
+                                        <!--<td>
+                                            <a target="_blank" href="{{ song.audio_file.url }}">
+                                                <button type="button" class="btn btn-success btn-xs">
+                                                    <span class="glyphicon glyphicon-play"></span>&nbsp; Play
+                                                </button>
+                                            </a>
+                                        </td>-->
+                                        <td>
+                                            <a href="{% url 'cancer:detail' query.access.id %}">
+                                                <img src="{{ query.access.cancer_logo.url }}" class="img-responsive" style="width: 20px; float: left; margin-right: 10px;" />
+                                            </a>
+                                            <a href="{% url 'cancer:detail' query.access.id %}">{{ query.access.cancer_type }}</a>
+                                        </td>
+                                        <!--<td>
+                                            <a href="{% url 'music:favorite' song.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span></a>
+                                        </td>-->
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}

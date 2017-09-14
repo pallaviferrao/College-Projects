@@ -1,0 +1,107 @@
+{% extends 'cancer/base.html' %}
+{% block title %}{{ access }}{% endblock %}
+{% block access_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid query-container">
+
+    <div class="row">
+
+        <!-- Left Album Info -->
+        <div class="col-sm-4 col-md-3" >
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{% url 'cancer:detail' access.id %}">
+                        {% if access.cancer_logo %}
+                            <img src="{{ access.cancer_logo.url }}" class="img-responsive">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ access.name }} <small>{{ access.cancer_type }}</small></h1>
+                    <h2>{{ access.blood_type }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Song Info -->
+        <div class="col-sm-8 col-md-9">
+
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" class="active"><a href="{% url 'cancer:detail' access.id %}">View All</a></li>
+                <li role="presentation"><a href="{% url 'cancer:create_query' access.id %}">Add New Query</a></li>
+            </ul>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h3>All Querys</h3>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Query_Title</th>
+                            <th>Solution</th>
+                            {% for doctor in access.query.doctor_set.all %}
+                            <th>Doctor name.</th>
+                            <th>Doctor's Advice</th>
+                            {% endfor %}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for query in access.query_set.all %}
+                            <tr>
+                                <td>{{ query.query_title }}</td>
+                                <td>{{ query.solution }}</td>
+                                {% for doctor in access.doctor_set.all %}
+                                    <td> {{ doctor.doctor_name }}</td>
+                                    <td>{{ doctor.suggestion }}</td>
+                                {% endfor %}
+                                <!--<td>
+                                    <a target="_blank" href="{{ song.audio_file.url }}">
+                                        <button type="button" class="btn btn-success btn-xs">
+                                            <span class="glyphicon glyphicon-play"></span>&nbsp; Play
+                                        </button>
+                                    </a>
+                                </td>-->
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form action="{% url 'cancer:delete_query' access.id query.id %}" method="post" style="display: inline;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="query_id" value="{{ query.id }}" />
+                                        <button type="submit" class="btn btn-danger btn-xs">
+                                            <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="{% url 'cancer:add_suggestion' access.id query.id %}" method="post" style="display: inline;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="query_id" value="{{ query.id }}" />
+                                        <button type="submit" class="btn btn-xs">
+                                            <span class="glyphicon glyphicon-remove"></span>&nbsp; Add Doctor advice.
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+
+
+

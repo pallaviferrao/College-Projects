@@ -1,0 +1,71 @@
+{% extends 'cancer/base.html' %}
+{% block title %}All Query{% endblock %}
+{% block query_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid query-container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" ><a href="{% url 'cancer:query' 'all' %}">View All</a></li>
+                <li role="presentation" ><a href="{% url 'cancer:suggestion' 'all' %}">Sugg</a></li>
+                <!--<li role="presentation" {% if filter_by == 'favorites' %}class="active"{% endif %}><a href="{% url 'cancer:query' 'favorites' %}">Favorites</a></li>-->
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-12">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Query Title</th>
+                                <th>Artist</th>
+                                <th>Audio File</th>
+                                <th>Album</th>
+                                <th>Favorite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for query in query_list %}
+                                <tr>
+                                    <td>{{ query.query_title }}</td>
+                                    <td>{{ query.access.name }}</td>
+                                    <td>{{doctor.doctor_name}}</td>
+                                    <td>{{doctor.suggestion</td>
+                                     <!--<td>
+                                       <a target="_blank" href="{{ cancer.audio_file.url }}">
+                                            <button type="button" class="btn btn-success btn-xs">
+                                                <span class="glyphicon glyphicon-play"></span>&nbsp; Play
+                                            </button>
+                                        </a>
+                                    </td>-->
+                                    <td>
+                                        <a href="{% url 'cancer:detail' querys.access.id %}">
+                                            <img src="{{ query.access.cancer_logo.url }}" class="img-responsive" style="width: 20px; float: left; margin-right: 10px;" />
+                                        </a>
+                                        <a href="{% url 'cancer:detail' query.access.id %}">{{ query.access.cancer_type }}</a>
+                                    </td>
+                                    <!--<td>
+                                        <a href="{% url 'cancer:favorite' query.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if query.is_favorite %}active{% endif %}"></span></a>
+                                    </td>-->
+                                </tr>
+                            {% endfor %}
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
