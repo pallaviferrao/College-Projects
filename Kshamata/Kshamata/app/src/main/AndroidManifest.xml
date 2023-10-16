@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.pallavi.kshamata">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+        />
+
+    <application
+        android:name=".Manager"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".volunteer"
+            android:label="@string/title_activity_admin"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".profile" />
+        <activity android:name=".update_info" />
+        <activity android:name=".story" />
+        <activity android:name=".track_woman" />
+        <activity
+            android:name=".add_woman"
+            android:label="@string/title_activity_add_woman"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".display_details"
+            android:label="@string/title_activity_display_details"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCMnX_UOJhI3Ea0q8O1Lyz_C2ux4NAUk_M" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".VideoLoader" />
+        <activity
+            android:name=".Send_JSON"
+            android:label="@string/title_activity_send__json"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".List_of_Women" />
+        <activity android:name=".List_of_Volunteers" />
+        <activity
+            android:name=".admin_activity"
+            android:label="@string/title_activity_admin_activity"
+<<<<<<< HEAD
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Map_Of_Women" />
+        <activity android:name=".login" />
+        <activity android:name=".analyze" />
+        <activity android:name=".select_image_activity" />
+
+=======
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Map_Of_Women" />
+        <activity android:name=".login" />
+        <activity android:name=".assigned_women" />
+        <activity android:name=".Skills" />
+        <activity android:name=".Independent" />
+        <activity android:name=".Placement"></activity>
+>>>>>>> 81beaa1446c15b82c85781be92e03461e06e365b
+    </application>
+
+</manifest>
