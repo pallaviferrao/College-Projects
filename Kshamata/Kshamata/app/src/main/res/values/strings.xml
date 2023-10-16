@@ -3,7 +3,6 @@
     <string name="country_prompt">Skill</string>
     <string name="app_name">Kshamata</string>
 
-<<<<<<< HEAD
     <string name="subscription_key">39818244f5f240d29a2aafd23b2c14b0</string>
     <string name="add_subscription_key_tip_title">Subscription Key is Needed</string>
     <string name="add_subscription_key_tip">Please put your subscription key to source file \"app/res/values/strings.xml\" to enable Vision API calls.</string>
@@ -16,14 +15,14 @@
 
 
 
-=======
+
 
     <string-array name="country_arrays">
         <item>Tailoring.</item>
         <item>Data Entry.</item>
         <item>Embroidory.</item>
     </string-array>
->>>>>>> 81beaa1446c15b82c85781be92e03461e06e365b
+
 
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
