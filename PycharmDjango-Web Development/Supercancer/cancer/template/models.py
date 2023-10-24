@@ -35,16 +35,12 @@ class Doctor(models.Model):
     def __repr__(self):
         return self.suggestion
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    description = models.CharField(max_length=100, default="")
+    phone = models.IntegerField(default=0)
+    history = models.FileField(max_length=1000)
 
-
-                # class UserProfile(models.Model):
-        #   user = models.OneToOneField(User)
-        #  description = models.CharField(max_length=100, default="")
-        # phone = models.IntegerField(default=0)
-        # history = models.FileField(max_length=1000)
-
-        # def create_profile(sender, **kwargs):
-        #       if kwargs['created']:
-        #          user_profile = UserProfile.objects.create(user= kwargs['instance'])
-
-# post_save.connect(create_profile,sender=User)
+def create_profile(sender, **kwargs):
+    if kwargs['created']:
+    user_profile = UserProfile.objects.create(user= kwargs['instance'])

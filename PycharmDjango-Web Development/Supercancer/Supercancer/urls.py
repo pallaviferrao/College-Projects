@@ -6,7 +6,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^cancer/', include('cancer.urls')),
-    #url(r'^',include('cancer.urls')),
 ]
 
 if settings.DEBUG:

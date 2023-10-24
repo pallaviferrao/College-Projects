@@ -56,18 +56,6 @@ def create_query(request, access_id):
         query = form.save(commit=False)
         query.access = access
         query.save()
-        # query.audio_file = request.FILES['audio_file']
-        # file_type = query.audio_file.url.split('.')[-1]
-        # ile_type = file_type.lower()
-        # if file_type not in AUDIO_FILE_TYPES:
-        #   context = {
-        #      'access': access,
-        #     'form': form,
-        #    'error_message': 'Audio file must be WAV, MP3, or OGG',
-        # }
-        # return render(request, 'cancer/create_query.html', context)
-
-        # query.save()
         return render(request, 'cancer/detail.html', {'access': access})
     context = {
         'access': access,
@@ -97,34 +85,6 @@ def detail(request, access_id):
         user = request.user
         access = get_object_or_404(Access, pk=access_id)
         return render(request, 'cancer/detail.html', {'access': access, 'user': user})
-
-
-    # def favorite(request, query_id):
-    #   query = get_object_or_404(Query, pk=query_id)
-    #  try:
-    #     if query.is_favorite:
-    #        query.is_favorite = False
-    #    else:
-    #        query.is_favorite = True
-    #    query.save()
-    # except (KeyError, Query.DoesNotExist):
-    #    return JsonResponse({'success': False})
-    # else:
-    #   return JsonResponse({'success': True})
-
-
-    # def favorite_album(request, access_id):
-    #   album = get_object_or_404(Access, pk=access_id)
-    #  try:
-    #     if access.is_favorite:
-    #        access.is_favorite = False
-    #   else:
-    #      access.is_favorite = True
-    #  access.save()
-    # except (KeyError, Access.DoesNotExist):
-    #   return JsonResponse({'success': False})
-    # else:
-    #    return JsonResponse({'success': True})
 
 
 def index(request):
